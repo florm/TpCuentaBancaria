@@ -10,7 +10,7 @@ public class CuentaCorriente extends Cuenta {
 		this.giroEnDescubierto=giroEnDescubierto;
 	}
 	
-	public void extraerCuentaCorriente(Double montoExtraccion){
+	public void extraer(Double montoExtraccion){
 		Double extraccionDisponible=getSaldo()+giroEnDescubierto;
 		Double usoGiroDescubierto=montoExtraccion-getSaldo();
 		Double montoComision=usoGiroDescubierto*comision;

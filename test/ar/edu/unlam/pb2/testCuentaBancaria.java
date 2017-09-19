@@ -38,30 +38,30 @@ public class testCuentaBancaria {
 	@Test
 	public void testExtraccionCajaAhorroSinComision(){
 		CajaDeAhorro miCajaDeAhorro=new CajaDeAhorro(1000.0);
-		miCajaDeAhorro.extraerCajaAhorro(400.0);
+		miCajaDeAhorro.extraer(400.0);
 		assertEquals(600.0, miCajaDeAhorro.getSaldo(),0.01);
 	}
 	@Test
 	public void testExtraccionCajaAhorroConComision(){
 		CajaDeAhorro miCajaDeAhorro=new CajaDeAhorro(1000.0);
-		miCajaDeAhorro.extraerCajaAhorro(100.0); //primera extraccion
-		miCajaDeAhorro.extraerCajaAhorro(100.0); //segunda extraccion
-		miCajaDeAhorro.extraerCajaAhorro(100.0); //tercera extraccion
-		miCajaDeAhorro.extraerCajaAhorro(100.0);
-		miCajaDeAhorro.extraerCajaAhorro(100.0);
-		miCajaDeAhorro.extraerCajaAhorro(100.0); //sexta extraccion con comision
+		miCajaDeAhorro.extraer(100.0); //primera extraccion
+		miCajaDeAhorro.extraer(100.0); //segunda extraccion
+		miCajaDeAhorro.extraer(100.0); //tercera extraccion
+		miCajaDeAhorro.extraer(100.0);
+		miCajaDeAhorro.extraer(100.0);
+		miCajaDeAhorro.extraer(100.0); //sexta extraccion con comision
 		assertEquals(6,miCajaDeAhorro.getContadorExtraccion(),0.01);
 		assertEquals(394.0, miCajaDeAhorro.getSaldo(),0.01);
 	}
 	@Test
 	public void testExtraccionCajaAhorroSinSaldoSuperior(){
 		CajaDeAhorro miCajaDeAhorro=new CajaDeAhorro(500.0);
-		miCajaDeAhorro.extraerCajaAhorro(100.0); //primera extraccion
-		miCajaDeAhorro.extraerCajaAhorro(100.0); //segunda extraccion
-		miCajaDeAhorro.extraerCajaAhorro(100.0); //tercera extraccion
-		miCajaDeAhorro.extraerCajaAhorro(100.0);
-		miCajaDeAhorro.extraerCajaAhorro(100.0);
-		miCajaDeAhorro.extraerCajaAhorro(100.0);//sexta extraccion con comision pero sin saldo
+		miCajaDeAhorro.extraer(100.0); //primera extraccion
+		miCajaDeAhorro.extraer(100.0); //segunda extraccion
+		miCajaDeAhorro.extraer(100.0); //tercera extraccion
+		miCajaDeAhorro.extraer(100.0);
+		miCajaDeAhorro.extraer(100.0);
+		miCajaDeAhorro.extraer(100.0);//sexta extraccion con comision pero sin saldo
 		assertEquals(0.0, miCajaDeAhorro.getSaldo(),0.01); //2do sysout de error
 	}
 	//test Cuenta Corriente
@@ -75,13 +75,13 @@ public class testCuentaBancaria {
 	@Test
 	public void testExtraccionCuentaCorriente(){
 		CuentaCorriente miCuentaCorriente = new CuentaCorriente(100.0, 150.0);
-		miCuentaCorriente.extraerCuentaCorriente(200.0);
+		miCuentaCorriente.extraer(200.0);
 		assertEquals(-105.0, miCuentaCorriente.getSaldo(), 0.01);
 	}
 	@Test
 	public void testExtraccionCuentaCorrienteSuperandoGiroDescubierto(){
 		CuentaCorriente miCuentaCorriente = new CuentaCorriente(100.0, 150.0);
-		miCuentaCorriente.extraerCuentaCorriente(300.0);
+		miCuentaCorriente.extraer(300.0);
 		assertEquals(100.0, miCuentaCorriente.getSaldo(), 0.01); //3er sysout de error
 	}
 

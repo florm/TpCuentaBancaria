@@ -21,6 +21,17 @@ public class Cuenta {
 		this.saldo+=montoDeposito;
 	}
 	
+	public void extraer(Double montoExtraccion){
+		
+		if(this.getSaldo()>=montoExtraccion){
+			setSaldo(getSaldo()-montoExtraccion);
+		}
+		else{
+			System.out.println("no posee saldo suficiente");
+		}
+			
+		
+	}
 	
 	
 }

@@ -1,6 +1,6 @@
 package ar.edu.unlam.pb2;
 
-public class CajaDeAhorro extends CuentaSueldo {
+public class CajaDeAhorro extends Cuenta {
 
 	private Integer contadorExtraccion;
 	private Double comision=6.0;
@@ -36,13 +36,13 @@ public class CajaDeAhorro extends CuentaSueldo {
 
 
 
-	public void extraerCajaAhorro(Double montoExtraccion){
+	public void extraer(Double montoExtraccion){
 		if(this.contadorExtraccion<5){
-			extraer(montoExtraccion);
+			super.extraer(montoExtraccion);
 			contadorExtraccion++;
 		}
 		else{
-			extraer(montoExtraccion+comision);
+			super.extraer(montoExtraccion+comision);
 			contadorExtraccion++;
 		}
 	}
